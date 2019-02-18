@@ -1,0 +1,23 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{name}}</title>
+  </head>
+  <body>
+    <div>
+      <h1>{{ data.name }}</h1>
+      <table width="100%" border="1" cellspacing="0" cellpadding="4">
+        {{#each data.data}}
+          <tr>
+            {{#each this}}
+              <td>
+                {{this}}
+              </td>
+            {{/each}}
+          </tr>
+        {{/each}}
+      </table>
+    </div>
+  </body>
+</html>

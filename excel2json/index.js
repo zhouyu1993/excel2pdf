@@ -3,8 +3,13 @@ var fs = require('fs')
 var url = require('url')
 var path = require('path')
 var http = require('http')
+
 var xlsx = require('node-xlsx')
 var queryString = require('query-string')
+
+var config = {
+  port: 9876
+}
 
 // 解析当前目录
 var root = path.resolve('.')
@@ -64,9 +69,9 @@ var server = http.createServer(function(request, response) {
 })
 
 // 服务器监听
-server.listen(9876, '127.0.0.1')
-
-console.log('Server is running at http://127.0.0.1:9876')
+server.listen(config.port, () => {
+  console.log(`Server is running at http://127.0.0.1:${config.port}`)
+})
 
 // e.g.
 // http://127.0.0.1:9876/?files=excel2json/陈继芸.xls,excel2json/丁娉.xls

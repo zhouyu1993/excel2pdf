@@ -3,6 +3,7 @@ var path = require('path')
 var http = require('http')
 
 var handlebars = require('handlebars')
+var puppeteer = require('puppeteer')
 
 var config = {
   port: 9876,
@@ -157,6 +158,35 @@ function getTemplate (templateName, filename) {
 }
 
 if (data) {
+  var html2pdf = async () => {
+    var browser = await puppeteer.launch()
+
+    const page = await browser.newPage()
+
+    await page.goto(`http://127.0.0.1:${config.port}`, {
+      waitUntil: 'networkidle0'
+    })
+
+    await page.waitFor(500)
+
+    await page.pdf({
+      path: `./json2pdf/${data.name}.pdf`,
+      format: 'A4',
+      margin: {
+        top: '20px',
+        right: '10px',
+        bottom: '20px',
+        left: '10px'
+      }
+    })
+
+    await browser.close()
+
+    console.log('saved')
+
+    server.close()
+  }
+
   var promise = new Promise((resolve, reject) => {
     var templateName = config.template
 
@@ -179,10 +209,12 @@ if (data) {
 
     // 服务器监听
     server.listen(config.port, () => {
-      console.log(`Server is running at http://127.0.0.1:${config.port}`)
+      html2pdf()
     })
 
-    return resolve()
+    server.addListener('close', () => {
+      return resolve()
+    })
   })
 
   promise.then(() => {

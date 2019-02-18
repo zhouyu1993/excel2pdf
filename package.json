@@ -26,7 +26,10 @@
   "scripts": {
     "start": "npm run dev",
     "dev": "nodemon index.js",
-    "excel2json": "nodemon excel2json/index.js"
+    "excel2json": "nodemon excel2json/index.js",
+    "json2html": "nodemon json2html/index.js",
+    "html2pdf": "nodemon html2pdf/index.js",
+    "json2pdf": "nodemon json2pdf/index.js"
   },
   "dependencies": {
     "handlebars": "^4.1.0",
