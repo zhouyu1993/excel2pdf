@@ -1,0 +1,46 @@
+{
+  "name": "excel2pdf",
+  "version": "1.0.0",
+  "description": "excel2pdf",
+  "keywords": [
+    "excel2pdf",
+    "xlsx2pdf",
+    "xls2pdf",
+    "excel2json",
+    "json2pdf",
+    "excel",
+    "pdf"
+  ],
+  "author": "RainJoy <1490079545@qq.com>",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://"
+  },
+  "bugs": {
+    "url": "",
+    "email": ""
+  },
+  "homepage": "",
+  "license": "MIT",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "nodemon index.js",
+    "excel2json": "nodemon excel2json/index.js"
+  },
+  "dependencies": {
+    "handlebars": "^4.1.0",
+    "moment": "^2.24.0",
+    "node-xlsx": "^0.14.1",
+    "puppeteer": "^1.12.2",
+    "query-string": "^6.2.0",
+    "xlsx": "^0.14.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  },
+  "engines": {
+    "node": "8.14.0",
+    "npm": "^6.4.1"
+  }
+}
