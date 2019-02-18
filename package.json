@@ -7,6 +7,8 @@
     "xlsx2pdf",
     "xls2pdf",
     "excel2json",
+    "json2html",
+    "html2pdf",
     "json2pdf",
     "excel",
     "pdf"
